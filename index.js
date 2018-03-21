@@ -5,14 +5,9 @@
 const EventEmitter = require('events')
 
 class Imitter extends EventEmitter {
-  emit (eventName, ...results) {
-    setImmediate(() => super.emit(eventName, ...results))
-  }
   emitLog (eventName, ...results) {
-    setImmediate(() => {
-      console.log(`Firing event:${eventName}`)
-      super.emit(eventName, ...results)
-    })
+    console.log(`Firing event:${eventName}`)
+    super.emit(eventName, ...results)
   }
   on (eventName, handler) {
     super.on(eventName, (...results) => setImmediate(handler, ...results))
