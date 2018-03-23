@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "description": "asynchronous event-emitter",
   "main": "index.js",
-  "scripts": {
-    "callstack": "node ./example/callstack.js",
-    "event-emitter": "node ./example/event-emitter.js",
-    "imitter": "node ./example/imitter.js"
-  },
   "keywords": [
     "events",
     "event-emitter"

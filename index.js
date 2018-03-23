@@ -18,4 +18,18 @@ class Imitter extends EventEmitter {
   }
 }
 
-module.exports = Imitter
+/**
+ * addMethods
+ * @param {EventEmitter} emitter
+ */
+
+const addMethods = emitter => {
+  emitter.onImmediate = (eventName, handler) => {
+    emitter.on(eventName, (...results) => setImmediate(handler, ...results))
+  }
+  emitter.onceImmediate = (eventName, handler) => {
+    emitter.once(eventName, (...results) => setImmediate(handler, ...results))
+  }
+}
+
+module.exports = {Imitter, addMethods}
