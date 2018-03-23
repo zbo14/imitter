@@ -6,8 +6,20 @@ const Imitter = require('../')
 
 const imitter = new Imitter()
 
-imitter.onLog('1', () => imitter.emitLog('2'))
-imitter.onLog('2', () => imitter.emitLog('3'))
-imitter.onLog('3', () => imitter.emitLog('1'))
+imitter.onImmediate('1', () => {
+  console.log('Firing event:2')
+  imitter.emit('2')
+})
 
-imitter.emitLog('1')
+imitter.onImmediate('2', () => {
+  console.log('Firing event:2')
+  imitter.emit('3')
+})
+
+imitter.onImmediate('3', () => {
+  console.log('Firing event:3')
+  imitter.emit('1')
+})
+
+console.log('Firing event:1')
+imitter.emit('1')

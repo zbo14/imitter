@@ -9,7 +9,6 @@ const EventEmitter = require('events')
 const emitter = new EventEmitter()
 
 emitter.on('1', () => {
-  console.log('Handling event:1')
   setImmediate(() => {
     console.log('Firing event:2')
     emitter.emit('2')
@@ -17,7 +16,6 @@ emitter.on('1', () => {
 })
 
 emitter.on('2', () => {
-  console.log('Handling event:2')
   setImmediate(() => {
     console.log('Firing event:3')
     emitter.emit('event3')
@@ -25,7 +23,6 @@ emitter.on('2', () => {
 })
 
 emitter.on('event3', () => {
-  console.log('Handling event:3')
   setImmediate(() => {
     console.log('Firing event:1')
     emitter.emit('1')

@@ -4,21 +4,17 @@
 
 const EventEmitter = require('events')
 
+/**
+ * Imitter
+ * @extends EventEmitter
+ */
+
 class Imitter extends EventEmitter {
-  emitLog (eventName, ...results) {
-    console.log(`Firing event:${eventName}`)
-    super.emit(eventName, ...results)
-  }
-  on (eventName, handler) {
+  onImmediate (eventName, handler) {
     super.on(eventName, (...results) => setImmediate(handler, ...results))
   }
-  onLog (eventName, handler) {
-    super.on(eventName, (...results) => {
-      setImmediate(() => {
-        console.log(`Handling event:${eventName}`)
-        handler(...results)
-      })
-    })
+  onceImmediate (eventName, handler) {
+    super.once(eventName, (...results) => setImmediate(handler, ...results))
   }
 }
 

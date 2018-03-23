@@ -1,11 +1,11 @@
 {
   "name": "imitter",
   "version": "1.0.0",
-  "description": "asynchronous event emitter",
+  "description": "asynchronous event-emitter",
   "main": "index.js",
   "scripts": {
     "callstack": "node ./example/callstack.js",
-    "event-emitter": "node ./example/eventEmitter.js",
+    "event-emitter": "node ./example/event-emitter.js",
     "imitter": "node ./example/imitter.js"
   },
   "keywords": [
